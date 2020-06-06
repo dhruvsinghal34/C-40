@@ -85,7 +85,8 @@ class Game {
       }
 
     }
-
+    player.getCarAtEnd();
+   
     if(keyIsDown(UP_ARROW) && player.index !== null){
       player.distance +=10
       player.update();
@@ -93,12 +94,16 @@ class Game {
 
     if(player.distance > 3860){
       gameState = 2;
+      player.rank+=1
+      Player.update1(player.rank);
     }
-   
+    
     drawSprites();
   }
 
   end(){
     console.log("Game Ended");
+    console.log("rank"+player.rank);
+
   }
 }
